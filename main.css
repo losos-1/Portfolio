@@ -1,5 +1,6 @@
 :root {
   --background-color:#191820;
+  --footer-color:rgba(0, 0, 0, 0.133);
   --accent-color:#ae8bf8;
   --heading-color:#fff;
   --text-color:#98989A;
@@ -18,6 +19,7 @@
 }
 
 html[data-theme=dark] {
+  --footer-color:rgba(161, 161, 161, 0.133);
   --accent-color:#ae8bf8;
   --background-color:#ececec;
   --heading-color:#191820;
@@ -400,6 +402,16 @@ li {
 }
 
 .Contacts {
+  border: none;
+  border-radius: 15px;
+  padding: 10px 30px;
+  background-color: var(--background-color);
+  box-shadow: 10px 12px 20px -3px var(--box-shadow-bottom-color), -6px -8px 10px -3px var(--box-shadow-top-color);
+}
+.Contacts:hover {
+  border: 1.5px solid var(--accent-color);
+}
+.Contacts {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -411,16 +423,6 @@ li {
   font-weight: 500;
   line-height: 1.3;
   margin-bottom: 50px;
-}
-.Contacts .form {
-  border: none;
-  border-radius: 15px;
-  padding: 10px 30px;
-  background-color: var(--background-color);
-  box-shadow: 10px 12px 20px -3px var(--box-shadow-bottom-color), -6px -8px 10px -3px var(--box-shadow-top-color);
-}
-.Contacts .form:hover {
-  border: 1.5px solid var(--accent-color);
 }
 .Contacts .form:hover {
   border: none;
@@ -503,6 +505,49 @@ li {
   cursor: pointer;
   transform: scale(1.01);
   transition: 0.3s;
+}
+
+.form_media {
+  margin: 20px 0px;
+}
+.form_media h4 {
+  color: var(--heading-color);
+  font-size: clamp(18px, 1.5vw, 24px);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.form_media .social_media {
+  display: flex;
+  gap: 15px;
+}
+.form_media .social_media button {
+  background: none;
+  border: none;
+}
+.form_media .social_media button img {
+  width: clamp(35px, 5vw, 75px);
+  height: clamp(35px, 5vw, 75px);
+  object-fit: cover;
+  box-shadow: var(--avatar-shadow);
+  border-radius: 50%;
+  padding: 8px;
+  filter: grayscale(100%) brightness(200%) contrast(60%);
+  object-fit: cover;
+}
+
+.footer {
+  text-align: center;
+  background: var(--footer-color);
+}
+.footer p {
+  color: var(--text-color);
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 1;
+  padding: 20px 0px 10px 0px;
 }
 
 /*# sourceMappingURL=main.css.map */

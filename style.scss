@@ -302,16 +302,19 @@ li{
   }
 }
 .Contacts{
+  @include button;
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  
   margin-bottom: 120px;
   h2{
     @include default_h2
   }
   .form{
     
-    @include button;
+    
     &:hover{
       border: none;
     }
@@ -348,8 +351,37 @@ li{
           transform: scale(1.01);
           transition: 0.3s;
         }
-      }
-      
+        
+      }   
     } 
+  }
+}
+.form_media{
+  margin: 20px 0px;
+  h4{
+    @include default_h4;
+    margin-bottom: 15px;
+  }
+  .social_media{
+    display: flex;
+    gap: 15px;
+    button{
+      background: none;
+      border: none;
+      img{
+        @include skill_background;
+        filter: grayscale(100%) brightness(200%) contrast(60%);
+        object-fit: cover;
+      }
+    }
+  }
+}
+.footer{
+  text-align: center;
+  background: var(--footer-color);
+  p{
+    @include default_text;
+    opacity: 1;
+    padding: 20px 0px 10px 0px;
   }
 }

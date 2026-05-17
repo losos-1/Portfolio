@@ -1,5 +1,6 @@
 :root{
     --background-color:#191820;
+    --footer-color:rgba(0, 0, 0, 0.133);
     --accent-color:#ae8bf8;
     --heading-color:#fff;
     --text-color:#98989A;
@@ -18,6 +19,7 @@
 }
 
 html[data-theme="dark"]{
+    --footer-color:rgba(161, 161, 161, 0.133);
     --accent-color:#ae8bf8;
     --background-color:#ececec;
     --heading-color:#191820;
