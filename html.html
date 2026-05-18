@@ -29,15 +29,21 @@
         </li>
         </ul>
     </nav>
-
-    <span class="swich_topic" id="switchTopic">
+    <div class="header_button">
+        <span class="swich_topic" id="switchTopic">
         <button class="topic_part topic--white topic_first">
         <img src="./img/other/sun-2-svgrepo-com.svg" alt="">
         </button>
         <button class="topic_part topic--black topic_second">
         <img src="./img/other/moon-solid-svgrepo-com.svg" alt="">
         </button>
-    </span>
+        </span>
+        <div class="header_mobile_menu" id="headerMobileMenu">
+            <button>
+                <img src="./img/other/menu-svgrepo-com.svg" alt="">
+            </button>
+        </div>
+    </div>
     </div>
     </header>
     <div class="wrapper">
@@ -114,6 +120,15 @@
         <section class="Portfolio" id="PortfolioSection">
             <h2> Portfolio</h2>
             <div class="slider_box">
+                <div class="slide_chencher">
+                    <button class="next_slide next_slide--right">
+                        <img src="./img/other/chevron-right-svgrepo-com.svg" alt="">
+                    </button>
+                    <button class="next_slide next_slide--left">
+                        <img src="./img/other/chevron-right-svgrepo-com.svg" alt="">
+                    </button>
+                </div>
+                
                 <div class="slider_item">
                     <img src="./img/portfolio/inner-image (1).jpg" alt="">
                 </div>
@@ -129,11 +144,15 @@
                 <div class="slider_item">
                     <img src="./img/portfolio/inner-image.jpg" alt="">
                 </div>
+
+                <div class="slider_timer">
+                    <span class="slider_timer__line"></span>
+                </div>
             </div>
         </section>
         <section class="Contacts" id="ContactsSection">
             <h2>Contacts</h2>
-            <form class="form">
+            <form class="form" dsta-js-form>
                 <div class="form__group">
                     <div class="form_input">
                         <div class="form_name_group" >
@@ -199,20 +218,42 @@
             </div>
         </section>
     </div>
+    <footer class="footer">
+        <p>Все права защитила мама © 2026</p>
+    </footer>
     <div class="preloader">
         <div class="preloader__side preloader__side--left">
             <div class="preloader__part preloader__part--left preloader__part--left--first"></div>
             <div class="preloader__part preloader__part--left preloader__part--left--second"></div>
         </div>
-
+    
     <div class="preloader__side preloader__side--right">
         <div class="preloader__part preloader__part--right preloader__part--right--first"></div>
         <div class="preloader__part preloader__part--right preloader__part--right--second"></div>
     </div>
     </div>
-    <footer class="footer">
-        <p>Все права защитила мама © 2026</p>
-    </footer>
+    <div class="mobile_menu display_none" id="mobileMenu">
+        <button class="close_menu_btn" id="closeMenuBtn">
+            <img src="./img/other/close-svgrepo-com.svg" alt="">
+        </button>
+
+        <nav class="mobile_nav">
+            <ul class="mobile_list">
+                <li class="mobile_item">
+                    <a href="#aboutMeSection" class="mobile_link">About me</a>
+                </li>
+                <li class="mobile_item">
+                    <a href="#skillsSection" class="mobile_link">Skills</a>
+                </li>
+                <li class="mobile_item">
+                    <a href="#PortfolioSection" class="mobile_link">Portfolio</a>
+                </li>
+                <li class="mobile_item">
+                    <a href="#ContactsSection" class="mobile_link">Contacts</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <script src="./script.js"></script>
 </body>
 

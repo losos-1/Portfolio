@@ -42,5 +42,102 @@ switchTopic.addEventListener("click", (event) => {
   topicBlack.classList.add("topic--white");
 });
 
-//form
 
+const mobileMenuBtn = document.querySelector("#headerMobileMenu")
+const mobileMenu = document.querySelector("#mobileMenu")
+const closeMenuBtn = document.querySelector("#closeMenuBtn")
+const mobileLinks = document.querySelectorAll(".mobile_link");
+
+mobileMenuBtn.addEventListener("click",() =>{
+  mobileMenu.classList.remove("display_none")
+})
+closeMenuBtn.addEventListener("click",()=>{
+  mobileMenu.classList.add("display_none")
+})
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("display_none");
+  });
+});
+//slider
+
+const slides = document.querySelectorAll(".slider_item");
+const nextButton = document.querySelector(".next_slide--right");
+const prevButton = document.querySelector(".next_slide--left");
+const sliderBox = document.querySelector(".slider_box")
+const sliderTimer = document.querySelector(".slider_timer__line")
+
+let timerCnt = 0;
+let timerSlider
+let currentSlide = 0;
+
+
+
+function updateSlider() {
+  clearInterval(timerSlider)
+
+    slides.forEach((slide) => {
+        slide.classList.remove(
+            "slider_item--active",
+            "slider_item--left",
+            "slider_item--right",
+            "slider_item--hidden"
+        );
+
+        slide.classList.add("slider_item--hidden");
+    });
+
+    const rightSlide = currentSlide === 0 
+        ? slides.length - 1 
+        : currentSlide - 1;
+
+    const leftSlide = currentSlide === slides.length - 1 
+        ? 0 
+        : currentSlide + 1;
+
+    slides[currentSlide].classList.remove("slider_item--hidden");
+    slides[currentSlide].classList.add("slider_item--active");
+
+    slides[leftSlide].classList.remove("slider_item--hidden");
+    slides[leftSlide].classList.add("slider_item--left");
+
+    slides[rightSlide].classList.remove("slider_item--hidden");
+    slides[rightSlide].classList.add("slider_item--right");
+    timerSlider = setInterval(()=>{
+      timerCnt += 1
+      if (timerCnt === 100){
+        timerCnt = 0
+        currentSlide--;
+        if (currentSlide < 0) {
+          currentSlide = slides.length - 1;
+        }
+        updateSlider();
+      }
+      sliderTimer.style.width = timerCnt + "px"
+    },50)
+}
+
+nextButton.addEventListener("click", () => {
+    currentSlide++;
+    timerCnt = 0
+    
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    
+    updateSlider();
+});
+
+prevButton.addEventListener("click", () => {
+    currentSlide--;
+    timerCnt = 0
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    updateSlider();
+});
+
+updateSlider();
+
+//form
