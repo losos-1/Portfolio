@@ -116,7 +116,12 @@ function updateSlider() {
       sliderTimer.style.width = timerCnt + "px"
     },50)
 }
-
+sliderBox.addEventListener("mouseover",() =>{
+  clearInterval(timerSlider)
+})
+sliderBox.addEventListener("mouseleave",() =>{
+  updateSlider()
+})
 nextButton.addEventListener("click", () => {
     currentSlide++;
     timerCnt = 0
@@ -141,3 +146,49 @@ prevButton.addEventListener("click", () => {
 updateSlider();
 
 //form
+const form = document.querySelector("[data-js-form]");
+const nameInput = document.querySelector("#nameInput");
+const phoneInput = document.querySelector("#phoneInput");
+const messageInput = document.querySelector("#messageInput");
+const submitButton = document.querySelector("#submitButton");
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+
+  const data = {
+    name: nameInput.value.trim(),
+    phone: phoneInput.value.trim(),
+    message: messageInput.value.trim(),
+  };
+
+  try {
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    const response = await fetch("http://localhost:3000/send-message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.log("Ошибка с backend:", errorData);
+      throw new Error(errorData.message || "Ошибка отправки");
+    }
+
+    form.reset();
+    submitButton.textContent = "Sent!";
+  } catch (error) {
+    console.error(error);
+    submitButton.textContent = "Error";
+  } finally {
+    setTimeout(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send massage";
+    }, 2000);
+  }
+});
