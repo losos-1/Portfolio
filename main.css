@@ -164,6 +164,7 @@ li {
 .header {
   position: sticky;
   padding: 0px 20px;
+  margin-bottom: 80px;
   top: 0;
   z-index: 1000;
   padding-top: 10px;
@@ -329,11 +330,11 @@ li {
   position: relative;
 }
 .about_me .about_foto {
-  max-width: clamp(440px, 440px + 6vw, 600px);
+  max-width: clamp(440px, 440px + 6vw, 500px);
   position: absolute;
   z-index: 2;
-  bottom: 0;
-  right: 0;
+  bottom: 20px;
+  right: 40px;
   filter: grayscale(var(--filter_hrom));
 }
 .about_me .about_foto_circle {
