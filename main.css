@@ -67,6 +67,9 @@ body {
   background-color: var(--background-color);
   font-family: "Inter", Arial, sans-serif;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .preloader {
@@ -290,7 +293,7 @@ li {
   justify-content: space-between;
 }
 .about_me .about_text {
-  max-width: clamp(540px, 540px + 6vw, 700px);
+  max-width: clamp(340px, 540px + 6vw, 700px);
 }
 .about_me .about_text .about_heading {
   color: var(--heading-color);
@@ -737,6 +740,28 @@ li {
   }
 }
 @media (max-width: 768px) {
+  .about_me {
+    padding: 80px 0;
+  }
+
+  .about_me .about_text {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .about_me .about_text .about_heading {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .skills {
+    white-space: normal;
+  }
+
+  .skills .Current_Skills .Skills_box .Skills_item {
+    min-width: 0;
+    width: 100%;
+  }
+  
   .skills {
     flex-direction: column;
     gap: 50px;
@@ -771,5 +796,28 @@ li {
     display: block;
   }
 }
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
+.preloader {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  .about_me,
+  .skills,
+  .Portfolio,
+  .Contacts {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
 /*# sourceMappingURL=main.css.map */
